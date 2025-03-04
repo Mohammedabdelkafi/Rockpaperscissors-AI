@@ -8,8 +8,6 @@
 #define MAX_HISTORY 100
 
 const char *moves[MAX_MOVES] = {"rock", "paper", "scissors"};
-
-// Function to determine the winner
 const char* get_winner(const char *user_move, const char *ai_move) {
     if (strcmp(user_move, ai_move) == 0) {
         return "tie";
@@ -22,7 +20,6 @@ const char* get_winner(const char *user_move, const char *ai_move) {
     }
 }
 
-// Function to predict the next move based on Markov Chain
 const char* predict_next_move(char user_history[MAX_HISTORY][10], int history_length, int markov_chain[MAX_MOVES][MAX_MOVES]) {
     if (history_length < 2) {
         return moves[rand() % MAX_MOVES];
@@ -58,7 +55,6 @@ const char* predict_next_move(char user_history[MAX_HISTORY][10], int history_le
     }
 }
 
-// Function to update Markov Chain based on user history
 void update_markov_chain(char user_history[MAX_HISTORY][10], int history_length, int markov_chain[MAX_MOVES][MAX_MOVES]) {
     if (history_length < 2) {
         return;
